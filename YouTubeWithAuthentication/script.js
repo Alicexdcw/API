@@ -11,7 +11,7 @@ const channelForm = document.getElementById('channel-form');
 const channelInput = document.getElementById('channel-input');
 const videoContainer = document.getElementById('video-container');
 
-const defaultChannel = 'Alice Lee'
+const defaultChannel = 'techguyweb'
 
 //都在youtube API裡面
 //Load auth2 library
@@ -89,15 +89,15 @@ function getChannel(channel){
         <ul class="collection">
           <li class="collection-item">Title: ${channel.snippet.title}</li>
           <li class="collection-item">ID: ${channel.id}</li>
-          <li class="collection-item">Subscribers: ${numberWithCommas(
+          <li class="collection-item">Subscribers: ${
             channel.statistics.subscriberCount
-          )}</li>
-          <li class="collection-item">Views: ${numberWithCommas(
+          }</li>
+          <li class="collection-item">Views: ${
             channel.statistics.viewCount
-          )}</li>
-          <li class="collection-item">Videos: ${numberWithCommas(
+          }</li>
+          <li class="collection-item">Videos: ${
             channel.statistics.videoCount
-          )}</li>
+          }</li>
         </ul>
 
         <p>${channel.snippet.description}</p>
