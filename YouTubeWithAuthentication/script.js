@@ -99,9 +99,9 @@ function getChannel(channel) {
         <ul class="collection">
           <li class="collection-item">Title: ${channel.snippet.title}</li>
           <li class="collection-item">ID: ${channel.id}</li>
-          <li class="collection-item">Subscribers: ${channel.statistics.subscriberCount}</li>
-          <li class="collection-item">Views: ${channel.statistics.viewCount}</li>
-          <li class="collection-item">Videos: ${channel.statistics.videoCount}</li>
+          <li class="collection-item">Subscribers: ${numberWithCommas(channel.statistics.subscriberCount)}</li>
+          <li class="collection-item">Views: ${numberWithCommas(channel.statistics.viewCount)}</li>
+          <li class="collection-item">Videos: ${numberWithCommas(channel.statistics.videoCount)}</li>
           <li class="collection-item">加入日期: ${channel.snippet.publishedAt}</li>
         </ul>
 
@@ -118,4 +118,7 @@ function getChannel(channel) {
     .catch(err => alert('沒有這個頻道'));
 }
   
-
+//javascript numbers with commas
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
