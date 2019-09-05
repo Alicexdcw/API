@@ -112,6 +112,10 @@ function getChannel(channel) {
           <li class="collection-item">加入日期: ${
             channel.snippet.publishedAt
           }</li>
+          <li class="collection-item">images: ${
+            channel.brandingSettings.image
+          }</li>
+          
         </ul>
 
         <p>${channel.snippet.description}</p>
