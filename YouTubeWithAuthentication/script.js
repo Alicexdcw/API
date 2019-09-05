@@ -112,7 +112,6 @@ function getChannel(channel) {
           <li class="collection-item">加入日期: ${
             channel.snippet.publishedAt
           }</li>
-   >
           
         </ul>
 
