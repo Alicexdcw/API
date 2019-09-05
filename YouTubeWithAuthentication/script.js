@@ -11,7 +11,7 @@ const channelForm = document.getElementById('channel-form');
 const channelInput = document.getElementById('channel-input');
 const videoContainer = document.getElementById('video-container');
 
-const defaultChannel = 'techguyweb'
+const defaultChannel = 'KennyKhoo1031'
 
 //都在youtube API裡面
 //Load auth2 library
