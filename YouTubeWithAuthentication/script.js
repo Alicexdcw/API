@@ -14,6 +14,17 @@ const videoContainer = document.getElementById('video-container');
 const defaultChannel = 'KennyKhoo1031'
 
 //都在youtube API裡面
+
+// Form submit and change channel
+channelForm.addEventListener('submit', e => {
+    e.preventDefault();
+  
+    const channel = channelInput.value;
+  
+    getChannel(channel);
+  });
+  
+
 //Load auth2 library
 
 function handleClientLoad() {
