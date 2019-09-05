@@ -24,7 +24,6 @@ channelForm.addEventListener('submit', e => {
     getChannel(channel);
   });
   
-
 //Load auth2 library
 
 function handleClientLoad() {
@@ -100,15 +99,10 @@ function getChannel(channel) {
         <ul class="collection">
           <li class="collection-item">Title: ${channel.snippet.title}</li>
           <li class="collection-item">ID: ${channel.id}</li>
-          <li class="collection-item">Subscribers: ${
-            channel.statistics.subscriberCount
-          }</li>
-          <li class="collection-item">Views: ${
-            channel.statistics.viewCount
-          }</li>
-          <li class="collection-item">Videos: ${
-            channel.statistics.videoCount
-          }</li>
+          <li class="collection-item">Subscribers: ${channel.statistics.subscriberCount}</li>
+          <li class="collection-item">Views: ${channel.statistics.viewCount}</li>
+          <li class="collection-item">Videos: ${channel.statistics.videoCount}</li>
+          <li class="collection-item">加入日期: ${channel.snippet.publishedAt}</li>
         </ul>
 
         <p>${channel.snippet.description}</p>
