@@ -113,12 +113,31 @@ function getChannel(channel) {
       `;
       showChannelData(output);
 
+      //show channeldata
+      const playlistId = channel.contentDetails.relatedPlaylists.uploads;
+      requestVideoPlaylist(playlistId);
+
     })
     //if there's no channel by that name
     .catch(err => alert('沒有這個頻道'));
 }
   
-//javascript numbers with commas
+//add commas to number
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+//show the vidioplaylist
+function requestVideoPlaylist(playlistId) {
+    const requestOptions = {
+      playlistId: playlistId,
+      part: 'snippet',
+      maxResults: 10
+    };
+  
+    const request = gapi.client.youtube.playlistItems.list(requestOptions);
+  
+    request.execute(response => {
+        console.log(response);
+    });
 }
