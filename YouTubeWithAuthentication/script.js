@@ -1,7 +1,7 @@
 //Options
 
 const CLIENT_ID =
-  "883097010432-qsi6ov58eevj528m41cgeikvq7f8eed2.apps.googleusercontent.com";
+  "Your client ID from Youtube API";
 const DISCOVERY_DOCS = [
   "https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest"
 ];
