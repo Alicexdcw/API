@@ -66,6 +66,15 @@ function handleSignoutClick() {
 
 //Get channel from API
 function getChannel(channel){
-    console.log(channel);
+   gapi.client.youtube.channels.list({
+       part:'snippet,contentDetails,statistics', //we wanna get
+       forUsername: channel
+   })
+
+    .then(response =>{
+        console.log(response);
+    })
+    //if there's no channel by that name
+    .catch(err => alert('沒有這個頻道'));
 }
   
