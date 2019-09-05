@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather App</title>
+</head>
+<body>
+  <div id="weather"></div>
+  <script>
+  
+    function makeRequest() {
+      xhr = new XMLHttpRequest();
+      xhr.onload= function() {
+        // 這邊處理傳回來的東西
+
+        var response = JSON.parse(this.responseText);
+        var city = response.city.name + ", " +response.city.country;
+        var weatherTitle = response.list[0].weather[0].main;
+        var temp = response.list[0].main.temp + "°";
+        
+        var weatherContainer = document.querySelector('#weather')
+        weatherContainer.innerHTML= city + "<br/>"+ weatherTitle + "<br/>"+temp ;
+      }
+      xhr.open('GET','http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=39fede12bd77302a6b64586ca0b75c8f', true )  
+      xhr.send()
+      }
+      makeRequest();
+  </script>
+</body>
+</html>
