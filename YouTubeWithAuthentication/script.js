@@ -11,7 +11,7 @@ const channelForm = document.getElementById('channel-form');
 const channelInput = document.getElementById('channel-input');
 const videoContainer = document.getElementById('video-container');
 
-const defaultChannel = 'Alice Lee'
+const defaultChannel = 'techguyweb'
 //都在youtube API裡面
 //Load auth2 library
 
@@ -64,6 +64,13 @@ function handleSignoutClick() {
     gapi.auth2.getAuthInstance().signOut();
   }  
 
+
+// Display channel data
+function showChannelData(data) {
+    const channelData = document.getElementById('channel-data');
+    channelData.innerHTML = data;
+  }
+
 //Get channel from API
 function getChannel(channel){
    gapi.client.youtube.channels
@@ -74,6 +81,32 @@ function getChannel(channel){
 
     .then(response => {
         console.log(response);
+
+        const channel = response.result.items[0];
+
+        const output = `
+        <ul class="collection">
+          <li class="collection-item">Title: ${channel.snippet.title}</li>
+          <li class="collection-item">ID: ${channel.id}</li>
+          <li class="collection-item">Subscribers: ${numberWithCommas(
+            channel.statistics.subscriberCount
+          )}</li>
+          <li class="collection-item">Views: ${numberWithCommas(
+            channel.statistics.viewCount
+          )}</li>
+          <li class="collection-item">Videos: ${numberWithCommas(
+            channel.statistics.videoCount
+          )}</li>
+        </ul>
+
+        <p>${channel.snippet.description}</p>
+        <hr>
+        <a class="btn grey darken-2" target="_blank" href="https://youtube.com/${
+          channel.snippet.customUrl
+        }">Visit Channel</a>
+      `;
+      showChannelData(output);
+
     })
     //if there's no channel by that name
     .catch(err => alert('沒有這個頻道'));
